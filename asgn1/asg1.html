@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>CSE 160 – Assignment 1: Painting</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      #controls {
+        margin-top: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .control-group {
+        border: 1px solid #ccc;
+        padding: 6px 8px;
+        border-radius: 4px;
+      }
+      .control-group label {
+        display: block;
+        font-size: 0.85rem;
+      }
+    </style>
+  </head>
+
+  <body onload="main()">
+    <h2>asgn1</h2>
+
+    <p>
+      <strong>Student:</strong> Aiden Huang<br />
+      <strong>Email:</strong> aiyhuang@ucsc.edu
+    </p>
+
+    <canvas id="webgl" width="400" height="400">
+      Please use a browser that supports "canvas"
+    </canvas>
+
+    <div id="controls">
+      <div class="control-group">
+        <strong>Drawing Mode</strong>
+        <div>
+          <button onclick="setShapeType('square')">Square</button>
+          <button onclick="setShapeType('triangle')">Triangle</button>
+          <button onclick="setShapeType('circle')">Circle</button>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <strong>Color</strong>
+        <label>
+          R:
+          <input id="rSlider" type="range" min="0" max="1" step="0.01" value="1" />
+        </label>
+        <label>
+          G:
+          <input id="gSlider" type="range" min="0" max="1" step="0.01" value="0" />
+        </label>
+        <label>
+          B:
+          <input id="bSlider" type="range" min="0" max="1" step="0.01" value="0" />
+        </label>
+      </div>
+
+      <div class="control-group">
+        <strong>Size</strong>
+        <label>
+          Size:
+          <input id="sizeSlider" type="range" min="5" max="40" step="1" value="10" />
+        </label>
+      </div>
+
+      <div class="control-group">
+        <strong>Circle Segments</strong>
+        <label>
+          Segments:
+          <input id="segmentSlider" type="range" min="3" max="50" step="1" value="12" />
+        </label>
+      </div>
+
+      <div class="control-group">
+        <strong>Canvas</strong>
+        <div>
+          <button onclick="clearCanvasAndShapes()">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+
+    <script src="asg1.js"></script>
+  </body>
+</html>
