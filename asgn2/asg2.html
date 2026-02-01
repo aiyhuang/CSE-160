@@ -1,0 +1,66 @@
+<!-- asg2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Assignment 2 – 3D Animal (Camel)</title>
+  <style>
+    body { background: #111; color: #eee; font-family: system-ui, Arial; }
+    .row { margin: 8px 0; }
+    canvas { background: black; border: 1px solid #444; display: block; }
+    label { display: inline-block; width: 180px; }
+    input[type="range"] { width: 240px; }
+    .panel { margin-top: 10px; max-width: 700px; }
+    .small { color: #aaa; font-size: 12px; }
+    button { margin-right: 8px; }
+  </style>
+</head>
+
+<body onload="main()">
+  <div class="panel">
+    <div> Aiden Huang</div>
+    <div> aiyhuang@ucsc.edu</div>
+  </div>
+
+  <canvas id="webgl" width="400" height="400">
+    Please use a browser that supports "canvas"
+  </canvas>
+
+  <div class="panel">
+    <div class="row">
+      <label>Global Rotation (Y)</label>
+      <input type="range" min="-180" max="180" value="0"
+             oninput="gAnimalGlobalRotation = Number(this.value); renderScene();">
+      <span id="globalRotVal">0</span>
+    </div>
+
+    <div class="row">
+      <label>Joint 1 Angle</label>
+      <input type="range" min="-90" max="90" value="0"
+             oninput="gJoint1 = Number(this.value); renderScene();">
+      <span id="joint1Val">0</span>
+    </div>
+
+    <div class="row">
+      <label>Joint 2 Angle</label>
+      <input type="range" min="-90" max="90" value="0"
+             oninput="gJoint2 = Number(this.value); renderScene();">
+      <span id="joint2Val">0</span>
+    </div>
+
+    <div class="row">
+      <button onclick="gAnimationOn = true;">Animate</button>
+      <button onclick="gAnimationOn = false;">Stop</button>
+    </div>
+
+    <div class="row small">
+      <span id="perf">fps: -- | ms/frame: --</span>
+    </div>
+
+ 
+  </div>
+
+  <script src="lib/cuon-matrix-cse160.js"></script>
+  <script src="asg2.js"></script>
+</body>
+</html>
