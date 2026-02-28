@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Asg4 - Lighting</title>
+  <style>
+    body { margin: 0; overflow: hidden; background: #000; }
+    #ui {
+      position: absolute; left: 10px; top: 10px;
+      color: white; font-family: monospace; font-size: 13px;
+      background: rgba(0,0,0,0.35); padding: 10px; border-radius: 8px;
+      max-width: 700px;
+    }
+    .row { display: flex; gap: 10px; align-items: center; margin: 6px 0; flex-wrap: wrap; }
+    input[type="range"] { width: 180px; }
+    button { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div id="ui">
+    <div class="row">
+      <span>Click canvas to lock mouse</span>
+      <span>| WASD move | Q/E yaw | Mouse look | F add | R remove</span>
+    </div>
+    <div class="row">
+      <button id="btnLighting">Lighting: ON</button>
+      <button id="btnNormals">Normals: OFF</button>
+      <button id="btnSpin">Light Spin: ON</button>
+    </div>
+    <div class="row">
+      <label>Light X <input id="lx" type="range" min="0" max="32" step="0.1" value="16"></label>
+      <label>Y <input id="ly" type="range" min="0" max="10" step="0.1" value="6"></label>
+      <label>Z <input id="lz" type="range" min="0" max="32" step="0.1" value="16"></label>
+    </div>
+    <div class="row">
+      <label>Light R <input id="lr" type="range" min="0" max="1" step="0.01" value="1"></label>
+      <label>G <input id="lg" type="range" min="0" max="1" step="0.01" value="1"></label>
+      <label>B <input id="lb" type="range" min="0" max="1" step="0.01" value="1"></label>
+    </div>
+  </div>
+
+  <canvas id="webgl" width="960" height="600"></canvas>
+
+  <script src="./lib/webgl-utils.js"></script>
+  <script src="./lib/webgl-debug.js"></script>
+  <script src="./lib/cuon-utils.js"></script>
+  <script src="./lib/cuon-matrix-cse160.js"></script>
+
+  <script src="./camera.js"></script>
+  <script src="./cube.js"></script>
+  <script src="./sphere.js"></script>
+  <script src="./asg4.js"></script>
+</body>
+</html>
